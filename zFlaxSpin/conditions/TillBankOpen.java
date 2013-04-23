@@ -14,7 +14,7 @@ public class TillBankOpen implements Condition{
 	
 	@Override
 	public boolean isValid() {
-		return script.getBot().getClient().getBank().isOpen();
+		return script.client.getBank().isOpen();
 	}
 
 }

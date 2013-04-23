@@ -16,6 +16,6 @@ public class TillNextFloor implements Condition{
 
 	@Override
 	public boolean isValid() {
-		return script.getBot().getClient().getMyPlayer().getZ() != floor;
+		return script.client.getMyPlayer().getZ() != floor;
 	}
 }

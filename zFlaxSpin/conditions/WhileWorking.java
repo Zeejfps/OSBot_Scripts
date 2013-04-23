@@ -26,21 +26,21 @@ public class WhileWorking implements Condition{
 	@Override
 	public boolean isValid() {
 		
-		final Item flax = script.getBot().getClient().getInventory().getItemForId(flaxId);
-		final int amountHave = (int) script.getBot().getClient().getInventory().getAmount(flax);
+		final Item flax = script.client.getInventory().getItemForId(flaxId);
+		final int amountHave = (int) script.client.getInventory().getAmount(flax);
 
 		final int amountMade = amountHad - amountHave;
 		
-		if(script.getBot().getClient().getInterface(160).isValid()){
+		if(script.client.getInterface(160) != null){
 			return true;
 		}
 
-		if(script.getBot().getClient().getInterface(interfaceParent).isValid()){
-			RectangleDestination xButton = new RectangleDestination(script.getBot().getClient().getInterface(interfaceParent).getChild(132).getRectangle());
+		if(script.client.getInterface(interfaceParent) != null){
+			RectangleDestination xButton = new RectangleDestination(script.client.getInterface(interfaceParent).getChild(132).getRectangle());
 			try {
-				script.getBot().getClient().moveMouse(xButton, false);
+				script.client.moveMouse(xButton, false);
 				script.sleep(MethodProvider.random(100, 300));
-				script.getBot().getClient().clickMouse(false);
+				script.client.clickMouse(false);
 				return true;
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -57,35 +57,19 @@ public class WhileWorking implements Condition{
 		switch(randNum){
 		
 		case 1:
-			try {
-				script.getBot().getClient().rotateCameraToAngle(MethodProvider.random(-60, 60));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			script.client.rotateCameraToAngle(MethodProvider.random(-60, 60));
 			break;
 			
 		case 33:
-			try {
-				script.getBot().getClient().rotateCameraToAngle(MethodProvider.random(-80, 50));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			script.client.rotateCameraToAngle(MethodProvider.random(-80, 50));
 			break;
 			
 		case 12:
-			try {
-				script.getBot().getClient().rotateCameraToAngle(MethodProvider.random(-20, 60));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			script.client.rotateCameraToAngle(MethodProvider.random(-20, 60));
 			break;
 			
 		case 2:
-			try {
-				script.getBot().getClient().rotateCameraToAngle(MethodProvider.random(-70, 90));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			script.client.rotateCameraToAngle(MethodProvider.random(-70, 90));
 			break;
 		default:
 			break;

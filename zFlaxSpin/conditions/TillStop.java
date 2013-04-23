@@ -17,44 +17,28 @@ public class TillStop implements Condition{
 	public boolean isValid() {
 		doAntiBan();
 
-		return !script.getBot().getClient().getMyPlayer().isMoving();
+		return !script.client.getMyPlayer().isMoving();
 	}
 	
 	private void doAntiBan(){
-		final int randNum = MethodProvider.random(0, 200);
+		final int randNum = MethodProvider.random(0, 100);
 		
 		switch(randNum){
 		
 		case 1:
-			try {
-				script.getBot().getClient().rotateCameraToAngle(MethodProvider.random(-60, 60));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			script.client.rotateCameraToAngle(MethodProvider.random(-60, 60));
 			break;
 			
 		case 33:
-			try {
-				script.getBot().getClient().rotateCameraToAngle(MethodProvider.random(-80, 50));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			script.client.rotateCameraToAngle(MethodProvider.random(-80, 50));
 			break;
 			
 		case 12:
-			try {
-				script.getBot().getClient().rotateCameraToAngle(MethodProvider.random(-20, 60));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			script.client.rotateCameraToAngle(MethodProvider.random(-20, 60));
 			break;
 			
 		case 2:
-			try {
-				script.getBot().getClient().rotateCameraToAngle(MethodProvider.random(-70, 90));
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			script.client.rotateCameraToAngle(MethodProvider.random(-70, 90));
 			break;
 		default:
 			break;
